@@ -1,0 +1,16 @@
+.inicio-contenido {
+    padding: 20px;
+  }
+  
+  .lista-productos {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .producto {
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  

@@ -1,0 +1,68 @@
+/* Estilos de los elementos individuales del carrusel */
+.product-slide {
+  padding: 20px;
+}
+
+.product-card {
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo transparente */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  padding: 20px;
+  text-align: center; /* Centra el contenido */
+  height: 100%;
+  margin: 0 10px; /* Espacio entre los productos */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Efecto de elevar la tarjeta al pasar el mouse */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más intensa al pasar el mouse */
+}
+
+.product-card .product-image-container {
+  height: 200px; /* Altura fija para el contenedor de la imagen */
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+}
+
+.product-card .product-image {
+  max-width: 100%; /* Ajusta el ancho máximo de la imagen */
+  max-height: 100%; /* Ajusta el alto máximo de la imagen */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+.product-card .product-details {
+  padding: 20px;
+}
+
+.product-card h3 {
+  margin-top: 10px;
+  color: #333; /* Color de texto principal */
+}
+
+.product-card p {
+  margin-top: 5px;
+  color: #666; /* Color de texto secundario */
+}
+
+.product-card .buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.product-card .buttons button {
+  margin: 0 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF; /* Color azul suave */
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.product-card .buttons button:hover {
+  background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+}

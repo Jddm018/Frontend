@@ -1,0 +1,57 @@
+.login {
+  max-width: 450px;
+  color: black;
+  margin: 50px auto; /* Aumentamos el espacio superior e inferior */
+  padding: 40px;
+  border: 1px solid #2edbe7;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px; /* Aumentamos el espacio entre grupos de formulario */
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; /* Añadimos espacio después de las etiquetas */
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px; /* Reducimos el relleno para que no sea demasiado espacioso */
+  margin-bottom: 10px; /* Ajustamos el espacio inferior */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px; /* Ajustamos el relleno */
+  margin-top: 10px; /* Agregamos espacio superior */
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+p {
+  margin-top: 20px; /* Aumentamos el espacio superior */
+}
+
+p a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

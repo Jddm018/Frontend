@@ -1,0 +1,43 @@
+.header {
+  background-color: #e4e7e7e3;
+  color: #333333; /* Cambié el color del texto para que sea más legible */
+  padding: 15px 20px; /* Aumenté el espacio interno para mayor claridad y agregué un espacio a los lados */
+  display: flex;
+  justify-content: space-between; /* Para colocar los elementos en los extremos */
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-list li {
+  margin-right: 15px; /* Aumenté el espacio entre elementos de la lista */
+  font-size: 18px; /* Reduje el tamaño de fuente para una apariencia más equilibrada */
+  font-family: Arial, sans-serif; /* Cambié la fuente a Arial para una mejor legibilidad */
+}
+
+.nav-link {
+  color: #333333; /* Cambié el color del texto para mayor contraste */
+  text-decoration: none;
+  font-size: 17px; /* Reduje el tamaño de fuente */
+  font-family: Arial, sans-serif; /* Cambié la fuente a Arial para consistencia */
+  padding: 10px 21px; /* Ajusté el relleno para que los botones tengan más espacio */
+  transition: background-color 0.3s; /* Agregué una transición para suavizar el cambio de color al pasar el mouse */
+}
+
+.nav-link:hover {
+  background-color: #dcdcdc; /* Cambié el color de fondo al pasar el mouse */
+}
+
+.Logo_Rivera {
+  height: 30px; /* Ajusté el tamaño del logotipo según sea necesario */
+}

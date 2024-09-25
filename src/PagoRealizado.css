@@ -1,0 +1,89 @@
+/* Estilos para el contenedor principal */
+.payment-success-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Estilos para el título */
+.payment-success-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos para el párrafo de confirmación */
+.payment-success-message {
+    font-size: 18px;
+    color: #007bff; /* Color azul */
+    margin-bottom: 20px;
+}
+
+/* Estilos para la lista de detalles de productos */
+.product-details-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* Estilos para cada elemento de la lista de detalles de productos */
+.product-details-item {
+    margin-bottom: 20px;
+}
+
+/* Estilos para los títulos de los detalles de productos */
+.product-details-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+/* Estilos para los detalles de productos */
+.product-details {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Estilos para los detalles de productos: nombre del producto */
+.product-details-name {
+    font-weight: bold;
+}
+
+/* Estilos para los detalles de productos: precio */
+.product-details-price {
+    font-style: italic;
+}
+
+/* Estilos para los detalles de productos: cantidad */
+.product-details-quantity {
+    font-weight: bold;
+    
+}
+/* Estilos para el botón de regresar al inicio */
+.back-to-home-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff; /* Color azul */
+    color: #fff; /* Texto blanco */
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.back-to-home-button:hover {
+    background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+}
+
+/* Estilos para centrar elementos */
+.center {
+    text-align: center;
+    margin-top: 20px; /* Espacio superior para separar del contenido superior */
+}
