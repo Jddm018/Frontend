@@ -1,33 +1,69 @@
 .product-view-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
   background-color: #f4f4f9;
+  padding: 10px;
 }
 
 .product-details {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #fff;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 98%; /* Ocupa casi todo el ancho de la pantalla */
+  max-width: none;
+  max-height: 80vh;
+  overflow: hidden;
+  margin-bottom: 20px; /* Espacio entre las tarjetas */
+}
+
+.product-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40%;
 }
 
 .product-details img {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 10px 0 0 10px;
 }
 
 .details-text {
-  text-align: center;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex-grow: 1;
+  overflow-y: auto;
+  max-height: 100%;
+  text-align: justify;
+}
+
+.details-text h1,
+.details-text p {
+  margin: 15px 0;
+}
+
+.free-shipping {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.inventory-info {
+  color: #333;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
 .add-to-cart-button {
+  width: 80%;
+  align-self: center;
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
@@ -35,9 +71,14 @@
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .add-to-cart-button:hover {
   background-color: #0056b3;
+}
+
+.description-paragraph {
+  text-align: justify;
+  margin-bottom: 10px;
 }

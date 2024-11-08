@@ -19,33 +19,38 @@ const Register = () => {
       }
 
       const data = {
-        name: name,
-        email: email,
-        password: password
+        name,  // Asegúrate de que el backend recibe `name` o cambia a `username` si es necesario
+        email,
+        password,
       };
 
-      const response = await fetch('http://localhost:8080/api/auth/register', {
+      const response = await fetch('http://localhost:8080/api/user', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(data),
       });
 
       const responseData = await response.json();
 
       if (!response.ok) {
-        throw new Error(responseData.message || 'Error al registrar usuario');
+        // Muestra el mensaje de error enviado desde el backend
+        throw new Error(responseData.msg || 'Error al registrar usuario');
       }
 
-      // Manejar la respuesta exitosa aquí
+      // Manejo de respuesta exitosa
       setMessage('Usuario registrado exitosamente');
       setError(null);
+      setName('');
+      setEmail('');
+      setPassword('');
+      setConfirmPassword('');
 
     } catch (error) {
       console.error('Error al registrar usuario:', error);
       setMessage('');
-      setError(error.message || 'Error al registrar usuario. Por favor, verifica los datos ingresados.');
+      setError(error.message || 'Error al registrar usuario. Verifica los datos ingresados.');
     }
   };
 
@@ -56,7 +61,7 @@ const Register = () => {
         <div className="form-group">
           <label htmlFor="name">Nombre:</label>
           <input
-            placeholder='Ingrese su nombre.'
+            placeholder="Ingrese su nombre."
             type="text"
             id="name"
             value={name}
@@ -67,7 +72,7 @@ const Register = () => {
         <div className="form-group">
           <label htmlFor="email">Email:</label>
           <input
-            placeholder='Ingrese su email.'
+            placeholder="Ingrese su email."
             type="email"
             id="email"
             value={email}
@@ -78,7 +83,7 @@ const Register = () => {
         <div className="form-group">
           <label htmlFor="password">Contraseña:</label>
           <input
-            placeholder='Ingrese su contraseña.'
+            placeholder="Ingrese su contraseña."
             type="password"
             id="password"
             value={password}
@@ -89,7 +94,7 @@ const Register = () => {
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirmar Contraseña:</label>
           <input
-            placeholder='Confirme su contraseña.'
+            placeholder="Confirme su contraseña."
             type="password"
             id="confirmPassword"
             value={confirmPassword}

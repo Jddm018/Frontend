@@ -5,17 +5,16 @@ import './CartItem.css';
 function CartItem() {
     const [cart, setCart] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
-    const navigate = useNavigate(); 
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const storedCart = localStorage.getItem('cart');
-        console.log(storedCart);
         if (storedCart) {
             try {
                 const parsedCart = JSON.parse(storedCart);
                 setCart(parsedCart);
-                calculateTotalPrice(parsedCart); // Calcular el precio total al establecer el carrito
+                calculateTotalPrice(parsedCart);
             } catch (error) {
                 console.error('Error parsing cart data:', error);
             }
@@ -27,38 +26,47 @@ function CartItem() {
         setTotalPrice(totalPrice);
     };
 
-    const removeFromCart = (index) => {
-        const updatedCart = [...cart.slice(0, index), ...cart.slice(index + 1)];
-        setCart(updatedCart);
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-        calculateTotalPrice(updatedCart); // Recalcular el precio total después de eliminar un producto
+    const handleCheckout = () => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+            navigate('/pay', {
+                state: {
+                    totalPrice,
+                    cart
+                }
+            });
+        }, 1000);
     };
 
     const decreaseQuantity = (index) => {
         const updatedCart = [...cart];
         if (updatedCart[index].quantity > 1) {
-            updatedCart[index].quantity -= 1;
+            updatedCart[index].quantity--;
             setCart(updatedCart);
             localStorage.setItem('cart', JSON.stringify(updatedCart));
-            calculateTotalPrice(updatedCart); // Recalcular el precio total después de disminuir la cantidad
+            calculateTotalPrice(updatedCart);
         }
     };
 
     const increaseQuantity = (index) => {
         const updatedCart = [...cart];
-        updatedCart[index].quantity += 1;
+        updatedCart[index].quantity++;
         setCart(updatedCart);
         localStorage.setItem('cart', JSON.stringify(updatedCart));
-        calculateTotalPrice(updatedCart); // Recalcular el precio total después de aumentar la cantidad
+        calculateTotalPrice(updatedCart);
     };
 
-    const handleCheckout = () => {
-        setLoading(true);
-        setTimeout(() =>{
-            setLoading(false);
-            navigate('/pay', { state: { totalPrice } });  
-        }, 1000)
-        
+    const removeFromCart = (index) => {
+        const updatedCart = cart.filter((_, i) => i !== index);
+        setCart(updatedCart);
+        localStorage.setItem('cart', JSON.stringify(updatedCart));
+        calculateTotalPrice(updatedCart);
+    };
+
+    const clearCart = () => {
+        setCart([]);
+        localStorage.removeItem('cart');
     };
 
     return (
@@ -77,7 +85,7 @@ function CartItem() {
                 <tbody>
                     {cart.map((item, index) => (
                         <tr key={index}>
-                            <td><img src={item.images} alt={item.name} style={{ width: '70px' }} /></td>
+                            <td><img src={`http://localhost:8080/uploads/products/${item.images}`} alt={item.name} style={{ width: '70px' }} /></td>
                             <td>{item.name}</td>
                             <td>${item.price}</td>
                             <td>
@@ -96,12 +104,11 @@ function CartItem() {
                 <h4>Resumen de compra</h4>
                 <p>Total: ${totalPrice}</p>
             </div>
-
-            
             <div className='div-button'>
                 <button onClick={handleCheckout} className="checkout-button" disabled={loading}>
                     {loading ? 'Procediendo al pago...' : 'Continuar Compra'}
                 </button>
+                <button onClick={clearCart} className="clear-cart-button">Vaciar Carrito</button>
             </div>
         </div>
     );

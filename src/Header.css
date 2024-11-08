@@ -1,9 +1,9 @@
 .header {
   background-color: #e4e7e7e3;
-  color: #333333; /* Cambié el color del texto para que sea más legible */
-  padding: 15px 20px; /* Aumenté el espacio interno para mayor claridad y agregué un espacio a los lados */
+  color: #333333;
+  padding: 15px 20px;
   display: flex;
-  justify-content: space-between; /* Para colocar los elementos en los extremos */
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -20,24 +20,42 @@
 }
 
 .nav-list li {
-  margin-right: 15px; /* Aumenté el espacio entre elementos de la lista */
-  font-size: 18px; /* Reduje el tamaño de fuente para una apariencia más equilibrada */
-  font-family: Arial, sans-serif; /* Cambié la fuente a Arial para una mejor legibilidad */
+  margin-right: 15px;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
 }
 
 .nav-link {
-  color: #333333; /* Cambié el color del texto para mayor contraste */
+  color: #333333;
   text-decoration: none;
-  font-size: 17px; /* Reduje el tamaño de fuente */
-  font-family: Arial, sans-serif; /* Cambié la fuente a Arial para consistencia */
-  padding: 10px 21px; /* Ajusté el relleno para que los botones tengan más espacio */
-  transition: background-color 0.3s; /* Agregué una transición para suavizar el cambio de color al pasar el mouse */
+  font-size: 17px;
+  font-family: Arial, sans-serif;
+  padding: 10px 21px;
+  transition: background-color 0.3s;
 }
 
 .nav-link:hover {
-  background-color: #dcdcdc; /* Cambié el color de fondo al pasar el mouse */
+  background-color: #dcdcdc;
 }
 
 .Logo_Rivera {
-  height: 30px; /* Ajusté el tamaño del logotipo según sea necesario */
+  height: 30px;
+}
+
+/* Estilos para el botón de cerrar sesión */
+.logout-button {
+  background-color: #ff4d4d; /* Color de fondo rojo */
+  color: #ffffff; /* Color de texto blanco */
+  border: none; /* Sin borde */
+  border-radius: 5px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espacio interno */
+  font-size: 17px; /* Tamaño de fuente */
+  font-family: Arial, sans-serif; /* Consistente con el resto */
+  cursor: pointer; /* Puntero al pasar el mouse */
+  transition: background-color 0.3s, transform 0.2s; /* Transiciones para suavidad */
+}
+
+.logout-button:hover {
+  background-color: #ff1a1a; /* Color más oscuro al pasar el mouse */
+  transform: scale(1.05); /* Efecto de escalado */
 }

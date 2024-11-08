@@ -1,11 +1,11 @@
 import React from 'react';
 import Slideshow from './Slideshow';
-
+import InicioContenido from './InicioContenido'
 
 import img1 from './img/slider1.png';
 import img2 from './img/slider2.png';
 import img3 from './img/slider3.png';
-import Carousel from './Carousel';
+
 
 
 function Inicio() {
@@ -15,7 +15,8 @@ function Inicio() {
     <div className="App">
       
       <Slideshow images={images} />
-      <Carousel/>
+      <InicioContenido />
+
       
     </div>
   );

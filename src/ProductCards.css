@@ -1,0 +1,69 @@
+.product-cards {
+    display: flex; /* Utiliza flexbox para alinear elementos en fila */
+    flex-direction: column; /* Mantiene el título en una columna */
+    align-items: center; /* Centra el contenido en el eje horizontal */
+    padding: 20px; /* Espacio alrededor del contenedor */
+    background-color: #f8f9fa; /* Color de fondo claro */
+}
+
+.product-cards h2 {
+    text-align: center; /* Centra el texto del encabezado */
+    margin-bottom: 20px; /* Espacio debajo del encabezado */
+    font-size: 28px; /* Tamaño de fuente del encabezado */
+    color: #333; /* Color del texto del encabezado */
+}
+
+.cards-container {
+    display: flex; /* Utiliza flexbox para alinear las tarjetas horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se envuelvan si hay muchas */
+    justify-content: space-between; /* Espacio entre las tarjetas */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.product-card {
+    display: flex; /* Utiliza flexbox para la tarjeta */
+    flex-direction: column; /* Organiza la imagen y el texto en columna */
+    align-items: center; /* Centra el contenido dentro de la tarjeta */
+    border: 1px solid #ccc; /* Borde gris claro alrededor de la tarjeta */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 10px; /* Margen entre tarjetas */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transiciones suaves para efectos */
+    width: calc(27% - 20px); /* Ancho de la tarjeta, ocupando 3 por fila */
+    height: 270px; /* Altura fija para que todas las tarjetas tengan el mismo tamaño */
+    background-color: white; /* Color de fondo blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para un efecto elevado */
+    overflow: hidden; /* Oculta el desbordamiento para la imagen */
+}
+
+.product-card:hover {
+    transform: translateY(-5px); /* Mueve la tarjeta hacia arriba al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra al pasar el mouse */
+}
+
+.product-card img {
+    width: 100%; /* Hace que la imagen ocupe todo el ancho de la tarjeta */
+    height: 230px; /* Altura fija para la imagen */
+    object-fit: contain; /* Asegura que la imagen se muestre completa sin recortes */
+    object-position: center; /* Centra la imagen dentro de su contenedor */
+}
+
+.product-card h3 {
+    margin: 10px 0; /* Margen del título */
+    font-size: 22px; /* Tamaño de fuente del título */
+    color: #333; /* Color del texto del título */
+    text-align: center; /* Centra el texto del título */
+}
+
+/* Responsivo: Ajusta el diseño para pantallas más pequeñas */
+@media (max-width: 768px) {
+    .product-card {
+        width: calc(45% - 20px); /* Dos tarjetas por fila en pantallas medianas */
+    }
+}
+
+@media (max-width: 480px) {
+    .product-card {
+        width: calc(100% - 20px); /* Una tarjeta por fila en pantallas pequeñas */
+    }
+}

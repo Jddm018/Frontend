@@ -3,26 +3,34 @@ import './InicioContenido.css'; // Importa el archivo de estilos CSS para el con
 import ListaProductos from './ListaProductos'; // Importa el componente ListaProductos
 
 const InicioContenido = () => {
-  const [productosDestacados, setProductosDestacados] = useState([]);
+  const [productos, setProductos] = useState([]);
 
   useEffect(() => {
-    const obtenerProductosDestacados = async () => {
+    const obtenerProductos = async () => {
       try {
-        const response = await fetch('http://localhost:8080/api/product/findAll');
+        const response = await fetch('http://localhost:8080/api/product/');
         const data = await response.json();
-        setProductosDestacados(data);
+        
+        // Log para verificar los datos recibidos desde la API
+        console.log('Datos de productos recibidos:', data);
+
+        // Accede al array de productos dentro de la propiedad 'products'
+        if (Array.isArray(data.products)) {
+          setProductos(data.products);
+        } else {
+          console.error('La API no devolvió un array:', data);
+        }
       } catch (error) {
-        console.error('Error al obtener productos destacados:', error);
+        console.error('Error al obtener productos:', error);
       }
     };
 
-    obtenerProductosDestacados();
+    obtenerProductos();
   }, []);
 
   return (
     <div className="inicio-contenido">
-      
-      <ListaProductos productos={productosDestacados} />
+      <ListaProductos productos={productos} />
     </div>
   );
 }

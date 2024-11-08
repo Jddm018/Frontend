@@ -1,27 +1,33 @@
-import React, { } from 'react';
+import React from 'react';
 import './ListaProductos.css';
 import { Link } from 'react-router-dom';
 
 const ListaProductos = ({ productos }) => {
-  console.log(productos);
+  if (!Array.isArray(productos) || productos.length === 0) {
+    return <p>No hay productos disponibles.</p>;
+  }
 
   return (
     <div className="lista-productos">
-      <h2>Nuestros Productos</h2>
+      <h1>Todo lo que buscas, en un solo lugar</h1>
       <div className="productos">
-        {productos
-          .filter(producto => producto !== null)
-          .map((producto, index) => (
-            <Link to={`/product/${producto.id}`}><div key={index} className="producto">
-            <img src={producto.images} alt={producto.title} className="producto-imagen" />
-            <div className="producto-detalle">
-              <h3 className="producto-titulo">{producto.name}</h3>
-              
+        {productos.map((producto) => (
+          <Link to={`/product/${producto._id}`} key={producto._id} className="producto-link">
+            <div className="producto">
+              <div className="producto-imagen-container">
+                <img 
+                  src={`http://localhost:8080/uploads/products/${producto.images}`} 
+                  alt={producto.title} 
+                  className="producto-imagen" 
+                />
+              </div>
+              <div className="producto-detalle">
+                <h2 className="producto-titulo">{producto.name}</h2>
+                <p className="producto-precio">${producto.price}</p>
+              </div>
             </div>
-            
-          </div>
           </Link>
-          ))}
+        ))}
       </div>
     </div>
   );

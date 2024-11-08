@@ -1,0 +1,53 @@
+.producto {
+    width: 300px;  /* Tamaño de la tarjeta */
+    height: 450px; /* Altura de la tarjeta */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* Espaciado adecuado */
+    background-color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.producto-imagen {
+    width: 100%;
+    height: 200px;  /* Tamaño de la imagen */
+    object-fit: cover;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+}
+
+.producto-detalle {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-end;
+}
+
+.producto-titulo {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #333;
+    text-align: center;  /* Centrado del título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+}
+
+.producto-precio {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #e74c3c;
+    text-align: center;  /* Centrado del precio */
+}
+
+.producto-precio::before {
+    content: "$";
+}

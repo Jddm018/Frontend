@@ -1,64 +1,70 @@
-body {
-  font-family: Arial, sans-serif;
+.lista-productos {
+  padding: 20px;
 }
 
-.lista-productos {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+h1 {
   text-align: center;
 }
-
-.lista-productos h2 {
-  font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #333;
+.productos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 3 columnas por fila */
+  gap: 30px;  /* Espacio entre las tarjetas */
+  justify-items: center; /* Centrado horizontal de las tarjetas */
 }
 
-.productos {
+.producto {
+  width: 100%;  /* La tarjeta ocupa todo el ancho disponible en su celda */
+  max-width: 300px;  /* Ancho máximo fijo para todas las tarjetas */
+  height: 250px;  /* Reducir la altura de la tarjeta a 350px */
+  border: 1px solid #ddd;
+  padding: 15px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para las tarjetas */
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;  /* Esto distribuye el contenido dentro de la tarjeta */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto:hover {
+  transform: scale(1.05); /* Efecto al pasar el ratón sobre la tarjeta */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Aumento de la sombra al hacer hover */
+}
+
+.producto-imagen-container {
+  flex-shrink: 0; /* Evita que la imagen se encoja */
+  text-align: center;
+  height: 150px;  /* Ajusta la altura de la imagen */
+  overflow: hidden; /* La imagen no se desborda fuera de su contenedor */
+}
+
+.producto-imagen {
+  width: 100%;  /* La imagen ocupa todo el ancho disponible */
+  height: 100%;  /* La imagen ocupa todo el alto disponible */
+  object-fit: cover; /* La imagen cubre todo el área sin distorsionarse, puede ser recortada */
+}
+
+.producto-detalle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;  /* Asegura que el título y el precio estén bien distribuidos */
+  align-items: center;  /* Centra el contenido horizontalmente */
+  height: 100%;  /* Asegura que el detalle ocupe toda la altura restante */
+}
+
+.producto-titulo, .producto-precio {
+  font-size: 4.5em;  /* Aumentamos el tamaño de la fuente */
+  font-weight: bold;
+  text-align: center; /* Centrado del título y precio */
+  margin: 5px 0; /* Ajustamos el margen para que haya separación entre los elementos */
+}
+
+.producto-precio {
+  color: green;
 }
 
 .producto-link {
   text-decoration: none;
   color: inherit;
-}
-
-.producto {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s;
-  width: 300px;
-  margin: 20px;
-}
-
-.producto:hover {
-  transform: translateY(-10px);
-}
-
-.producto-imagen {
-  width: 70%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.producto-detalle {
-  padding: 15px;
-}
-
-.producto-titulo {
-  font-size: 1.5em;
-  margin: 10px 0;
-  color: #333;
-}
-
-.producto-precio {
-  font-size: 1.2em;
-  color: #28a745;
-  font-weight: bold;
 }

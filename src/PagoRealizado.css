@@ -61,8 +61,48 @@
 /* Estilos para los detalles de productos: cantidad */
 .product-details-quantity {
     font-weight: bold;
-    
 }
+
+/* Nuevos estilos para el contenedor de pago realizado */
+.payment-received-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Estilos para el resumen de pago */
+.payment-received-summary {
+    margin-bottom: 20px;
+}
+
+/* Estilos para el encabezado de cada sección */
+.section-header {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Estilos para detalles del cliente y del pago */
+.client-details,
+.payment-details {
+    margin-bottom: 15px;
+}
+
+/* Estilos para los detalles de cliente */
+.client-details p,
+.payment-details p {
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+/* Estilos para centrar elementos */
+.center {
+    text-align: center;
+    margin-top: 20px; /* Espacio superior para separar del contenido superior */
+}
+
 /* Estilos para el botón de regresar al inicio */
 .back-to-home-button {
     display: inline-block;
@@ -80,10 +120,4 @@
 
 .back-to-home-button:hover {
     background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
-}
-
-/* Estilos para centrar elementos */
-.center {
-    text-align: center;
-    margin-top: 20px; /* Espacio superior para separar del contenido superior */
 }
