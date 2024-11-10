@@ -1,4 +1,4 @@
-import React, { } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
@@ -15,29 +15,28 @@ import ClientForm from './ClientForm';
 import PagoRealizado from './PagoRealizado';
 import PaymentSummary from './PaymentSummary';
 
-
-
 function App() {
   return (
     <div className="App">
       <Router>
         <Header />
-        <Routes>
-          <Route path='/cart' element={<CartItem />}></Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="products" element={<ProductCards />} />
-          <Route path="Inicio" element={<Inicio />} />
-          <Route path="/" element={<Inicio />} />
-          <Route path="/category/:categoryId" element={<ProductosPorCategoria />} />
-
-          <Route path="product/:id"element={<ProductView />}/>
-          <Route path="register" element={<RegistroLogin />} />
-          <Route path='/admin' element={<ViewAdmin />}/>
-          <Route path='/pay' element={<ClientForm />} />
-          <Route path='/payment-summary' element={<PaymentSummary />} />
-
-          <Route path='/pay-successfully' element={<PagoRealizado />}/>
-        </Routes>
+        {/* Envuelve el contenido principal en main-content */}
+        <div className="main-content">
+          <Routes>
+            <Route path='/cart' element={<CartItem />}></Route>
+            <Route path="/login" element={<Login />} />
+            <Route path="products" element={<ProductCards />} />
+            <Route path="Inicio" element={<Inicio />} />
+            <Route path="/" element={<Inicio />} />
+            <Route path="/category/:categoryId" element={<ProductosPorCategoria />} />
+            <Route path="product/:id" element={<ProductView />} />
+            <Route path="register" element={<RegistroLogin />} />
+            <Route path='/admin' element={<ViewAdmin />} />
+            <Route path='/pay' element={<ClientForm />} />
+            <Route path='/payment-summary' element={<PaymentSummary />} />
+            <Route path='/pay-successfully' element={<PagoRealizado />} />
+          </Routes>
+        </div>
         <Footer />
       </Router>
     </div>

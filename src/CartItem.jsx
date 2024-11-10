@@ -66,6 +66,7 @@ function CartItem() {
 
     const clearCart = () => {
         setCart([]);
+        setTotalPrice(0); // Reinicia el total a 0
         localStorage.removeItem('cart');
     };
 

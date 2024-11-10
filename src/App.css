@@ -1,4 +1,13 @@
+
+/* App.css */
+
 .App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Hace que el contenedor ocupe toda la altura de la pantalla */
   background-color: #ffffffee;
-  
+}
+
+.main-content {
+  flex: 1; /* Permite que el contenido principal ocupe el espacio disponible */
 }

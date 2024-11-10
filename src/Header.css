@@ -34,28 +34,37 @@
   transition: background-color 0.3s;
 }
 
-.nav-link:hover {
+/*.nav-link:hover {
   background-color: #dcdcdc;
-}
+}*/
 
 .Logo_Rivera {
   height: 30px;
 }
 
-/* Estilos para el botón de cerrar sesión */
-.logout-button {
-  background-color: #ff4d4d; /* Color de fondo rojo */
-  color: #ffffff; /* Color de texto blanco */
-  border: none; /* Sin borde */
-  border-radius: 5px; /* Bordes redondeados */
-  padding: 10px 20px; /* Espacio interno */
-  font-size: 17px; /* Tamaño de fuente */
-  font-family: Arial, sans-serif; /* Consistente con el resto */
-  cursor: pointer; /* Puntero al pasar el mouse */
-  transition: background-color 0.3s, transform 0.2s; /* Transiciones para suavidad */
+.powerbi-icon {
+  width: 30px; /* Tamaño del icono */
+  height: auto; /* Mantener las proporciones de la imagen */
+  cursor: pointer; /* Cambiar el cursor a mano cuando pasas por encima */
 }
 
-.logout-button:hover {
-  background-color: #ff1a1a; /* Color más oscuro al pasar el mouse */
-  transform: scale(1.05); /* Efecto de escalado */
+/* Estilos para la imagen de cerrar sesión */
+.logout-button {
+  background-color: transparent; /* Elimina el fondo */
+  border: none; /* Elimina el borde */
+  padding: 0; /* Elimina cualquier padding extra */
+  cursor: pointer; /* Cambia el cursor a mano */
+  transition: transform 0.2s; /* Efecto de transición */
+  outline: none; /* Elimina el borde azul al recibir el foco */
 }
+
+.logout-button:focus {
+  outline: none; /* Elimina el borde azul al hacer foco */
+}
+
+.logout-button img {
+  width: 30px; /* Tamaño de la imagen */
+  height: auto; /* Mantiene las proporciones */
+}
+
+

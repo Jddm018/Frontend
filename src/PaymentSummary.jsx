@@ -7,11 +7,22 @@ const PaymentSummary = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const { cart, totalPrice, client } = location.state || {}; // Obtenemos cart, totalPrice y client
-
+    console.log(location.state)
     // Validación de los datos recibidos
     if (!cart || !totalPrice || !client) {
         return <div>Error: No se encontraron los datos del carrito o cliente. Vuelve a intentarlo.</div>;
     }
+    const paymentData = {
+
+        total: totalPrice,
+        client,
+        products: cart.map(item => ({
+            product: item._id, 
+            quantity: item.quantity,
+        })),
+
+    };
+    console.log(paymentData)
 
     const handlePayment = async () => {
         try {
@@ -25,13 +36,9 @@ const PaymentSummary = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `x-token ${token}`,
+                    'x-token': token,
                 },
-                body: JSON.stringify({
-                    cart, 
-                    totalPrice, 
-                    client
-                }),
+                body: JSON.stringify(paymentData),
             });
 
             if (!response.ok) {

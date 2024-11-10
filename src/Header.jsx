@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
 import Logo_Rivera from "./img/Logo-removebg-preview.png";
-
+import InformeIcon from './img/informe.png';  // Asegúrate de importar la imagen
+import CerrarSesionIcon from './img/cerrar-sesion.png'
 const Header = () => {
   const[user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -87,6 +88,14 @@ const Header = () => {
           {console.log("login",isLoggedIn())}
           {console.log("admin",isAdmin)}
           {console.log("user",user)}
+          <li>
+            <img 
+              src={InformeIcon} 
+              alt="Power BI" 
+              className="powerbi-icon"
+              onClick={() => window.open('https://app.powerbi.com/view?r=eyJrIjoiNDgyN2M2ODctZDk0OC00YWEzLTk4NDMtM2QwNTlkMDExY2UxIiwidCI6IjlkMTJiZjNmLWU0ZjYtNDdhYi05MTJmLTFhMmYwZmM0OGFhNCIsImMiOjR9', '_blank')} 
+            />
+          </li>
           {!isLoggedIn() && ( 
             <>
               <li><Link to="/login" className="nav-link">Iniciar sesión</Link></li>
@@ -98,12 +107,12 @@ const Header = () => {
           )}
           <li><Link to="/cart" className="nav-link"><img src="carritocompras.png" alt="" height="30" /></Link></li>
           {isLoggedIn() && (
-            <button 
-              className="nav-link logout-button" 
-              onClick={logout}
-            >
-              Cerrar sesión
-            </button>
+            <div
+            className="nav-link logout-button"
+            onClick={logout}
+          >
+            <img src={CerrarSesionIcon} alt="Cerrar sesión" />
+          </div>
           )}
         </ul>
       </nav>

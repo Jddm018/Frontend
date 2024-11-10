@@ -28,7 +28,7 @@ const ClientForm = () => {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${token}`,
+                    'x-token': token,
                 },
                 body: JSON.stringify(client),
             });
