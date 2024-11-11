@@ -1,123 +1,133 @@
-/* Estilos para el contenedor principal */
+/* PagoRealizado.css */
+
 .payment-success-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
     background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
 }
 
-/* Estilos para el título */
-.payment-success-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Estilos para el párrafo de confirmación */
-.payment-success-message {
-    font-size: 18px;
-    color: #007bff; /* Color azul */
-    margin-bottom: 20px;
-}
-
-/* Estilos para la lista de detalles de productos */
-.product-details-list {
-    list-style: none;
-    padding: 0;
-}
-
-/* Estilos para cada elemento de la lista de detalles de productos */
-.product-details-item {
-    margin-bottom: 20px;
-}
-
-/* Estilos para los títulos de los detalles de productos */
-.product-details-title {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-/* Estilos para los detalles de productos */
-.product-details {
-    font-size: 16px;
-    color: #666;
-}
-
-/* Estilos para los detalles de productos: nombre del producto */
-.product-details-name {
-    font-weight: bold;
-}
-
-/* Estilos para los detalles de productos: precio */
-.product-details-price {
-    font-style: italic;
-}
-
-/* Estilos para los detalles de productos: cantidad */
-.product-details-quantity {
-    font-weight: bold;
-}
-
-/* Nuevos estilos para el contenedor de pago realizado */
 .payment-received-card {
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-width: 750px;  /* <-- Ancho reducido de 900px a 750px */
+    width: 100%;
+    font-size: 16px;
+    overflow: hidden;
 }
 
-/* Estilos para el resumen de pago */
-.payment-received-summary {
-    margin-bottom: 20px;
+.payment-success-title {
+    text-align: center;
+    color: #2a2a2a;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
 }
 
-/* Estilos para el encabezado de cada sección */
+.payment-success-message {
+    margin-bottom: 12px;
+    color: #333333;
+    font-size: 16px;
+}
+
+.payment-success-message strong {
+    color: #007bff;
+    font-weight: 600;
+}
+
 .section-header {
     font-size: 20px;
     font-weight: bold;
-    color: #333;
-    margin-top: 20px;
-}
-
-/* Estilos para detalles del cliente y del pago */
-.client-details,
-.payment-details {
+    color: #333333;
+    margin-top: 40px;
     margin-bottom: 15px;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 8px;
+    text-transform: uppercase;
 }
 
-/* Estilos para los detalles de cliente */
-.client-details p,
-.payment-details p {
-    margin: 5px 0;
+.client-details, .payment-details, .product-details-list {
+    margin-bottom: 30px;
+}
+
+.client-details p, .payment-details p {
+    margin: 8px 0;
     font-size: 16px;
 }
 
-/* Estilos para centrar elementos */
-.center {
-    text-align: center;
-    margin-top: 20px; /* Espacio superior para separar del contenido superior */
+.product-details-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 30px;
 }
 
-/* Estilos para el botón de regresar al inicio */
-.back-to-home-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff; /* Color azul */
-    color: #fff; /* Texto blanco */
+.product-details-item {
+    background-color: #f8f8f8;
+    padding: 18px;
+    margin-bottom: 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-details-item p {
+    margin: 6px 0;
     font-size: 16px;
+    color: #444444;
+}
+
+.product-details-item span {
     font-weight: bold;
-    text-decoration: none;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
 }
 
-.back-to-home-button:hover {
-    background-color: #0056b3; /* Color azul más oscuro al pasar el mouse */
+.product-details-name {
+    font-size: 18px;
+    color: #007bff;
+    margin-bottom: 8px;
+}
+
+.product-details-quantity, .product-details-price {
+    font-size: 16px;
+    color: #777777;
+}
+
+.payment-received-card a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.payment-received-card a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos adicionales para mejorar la presentación */
+@media (max-width: 768px) {
+    .payment-received-card {
+        padding: 25px;
+    }
+
+    .payment-success-title {
+        font-size: 24px;
+    }
+
+    .section-header {
+        font-size: 18px;
+    }
+
+    .product-details-item {
+        font-size: 14px;
+    }
 }

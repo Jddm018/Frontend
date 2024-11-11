@@ -6,6 +6,9 @@ const PagoRealizado = () => {
     const location = useLocation();
     const { paymentResponse } = location.state || {}; // Obtener paymentResponse desde location.state
 
+    // Verificar qué está recibiendo el componente
+    console.log('Datos recibidos en PagoRealizado:', location.state); // Agrega este log para ver los datos
+    
     // Verificar si paymentResponse está presente
     if (!paymentResponse) {
         return <p>No se encontraron datos de pago.</p>;

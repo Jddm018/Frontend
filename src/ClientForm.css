@@ -1,0 +1,88 @@
+/* Centrado de la tarjeta en el contenedor */
+.payment-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f5f5f5;
+    padding: 20px;
+    box-sizing: border-box;
+}
+/* Estilo para la tarjeta */
+.card {
+    position: relative; /* Para posicionar el logo dentro de la tarjeta */
+    width: 90%;
+    max-width: 800px;
+    padding: 20px 40px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Estilo para el logo */
+.logo {
+    position: absolute;
+    top: 15px; /* Ajuste para separarlo del borde superior */
+    right: 15px; /* Ajuste para separarlo del borde derecho */
+    width: 60px; /* Ajusta el tamaño del logo según sea necesario */
+    height: auto;
+}
+
+
+/* Estilo del formulario */
+.payment-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Título del formulario */
+.payment-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Filas del formulario */
+.form-row {
+    display: flex;
+    justify-content: space-between; /* Separación horizontal */
+    gap: 30px; /* Espacio entre preguntas */
+    margin-bottom: 25px;
+}
+
+/* Grupos de formulario */
+.form-group {
+    flex: 1;
+}
+
+/* Estilos para los inputs y etiquetas */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botón de enviar */
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.submit-button:hover {
+    background-color: #45a049;
+}

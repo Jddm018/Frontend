@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import './ClientForm.css';
 
 const ClientForm = () => {
     const [client, setClient] = useState({ dni: '', name: '', email: '', phone: '', address: '' });
@@ -39,15 +40,15 @@ const ClientForm = () => {
                 throw new Error('Error al crear el cliente');
             }
 
-            const newClient = await response.json();
-
-            // Usar el campo `uid` en lugar de `_id` para navegar
+            const  data = await response.json();
+           
+            const newClient  = data.client;
             if (!newClient.uid) {
+
                 console.error('La respuesta del backend no contiene un UID válido:', newClient);
                 throw new Error("El cliente creado no contiene un UID válido");
             }
 
-            // Navegar a la siguiente página con los datos del cliente, carrito y precio total
             navigate('/payment-summary', { state: { client: newClient.uid, cart, totalPrice } });
         } catch (error) {
             console.error('Error al crear cliente:', error);
@@ -58,8 +59,11 @@ const ClientForm = () => {
     return (
         <div className="payment-container">
             <div className="card">
+                {/* Imagen del logo en la esquina superior derecha */}
+                <img src="/visa-mastercard.png" alt="Visa y Mastercard" className="logo" />
+                <h2>Información del Cliente</h2>
                 <form className="payment-form">
-                    <h2>Información del Cliente</h2>
+                    
                     <div className="form-row">
                         <div className="form-group">
                             <label htmlFor="dni">Documento de Identidad:</label>
@@ -85,8 +89,22 @@ const ClientForm = () => {
                             <label htmlFor="address">Dirección:</label>
                             <input type="text" id="address" name="address" value={client.address} onChange={handleChange} required />
                         </div>
+                        <div className="form-group">
+                            <label htmlFor="cardNumber">Número de Tarjeta:</label>
+                            <input type="text" id="cardNumber" name="cardNumber" maxLength="19" required />
+                        </div>
                     </div>
-                    <button type="button" onClick={handleNextStep} className="submit-button">Paso 2</button>
+                    <div className="form-row">
+                        <div className="form-group">
+                            <label htmlFor="expiryDate">Fecha de Expiración:</label>
+                            <input type="text" id="expiryDate" name="expiryDate" value={new Date(Date.now() + 12 * 60 * 60 * 1000).toLocaleString('es-ES', { dateStyle: 'short', timeStyle: 'short' })} readOnly />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="cvv">CVV:</label>
+                            <input type="text" id="cvv" name="cvv" maxLength="3" required />
+                        </div>
+                    </div>
+                    <button type="button" onClick={handleNextStep} className="submit-button">Continuar</button>
                 </form>
             </div>
         </div>

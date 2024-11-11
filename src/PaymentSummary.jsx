@@ -51,7 +51,7 @@ const PaymentSummary = () => {
             setPaymentResponse(data); // Guardamos la respuesta del pago
 
             // Redirigir a la página de pago exitoso
-            navigate('/pay-successful', { state: { paymentResponse: data } });
+            navigate('/pay-successfully', { state: { paymentResponse: data } });
         } catch (error) {
             console.error('Error en la solicitud de pago:', error);
             alert('Error al procesar el pago. Intenta de nuevo.');
