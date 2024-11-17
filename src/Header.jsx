@@ -4,6 +4,11 @@ import './Header.css';
 import Logo_Rivera from "./img/Logo-removebg-preview.png";
 import InformeIcon from './img/informe.png';  // Asegúrate de importar la imagen
 import CerrarSesionIcon from './img/cerrar-sesion.png'
+import IniciarSesionIcon from './img/iniciar-sesion.png';
+import CarritoIcon from './img/supermercado.png'; 
+import AdminPanelIcon from './img/equipo-de-usuario.png';
+import CompraIcon from './img/reloj.png';
+
 const Header = () => {
   const[user, setUser] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
@@ -14,6 +19,7 @@ const Header = () => {
   const isLoggedIn = () => {
 
    const token = localStorage.getItem('token');
+
   
   // console.log(token)
    return token !== null;
@@ -27,12 +33,15 @@ const Header = () => {
           const response = await fetch('http://localhost:8080/api/user/byuser', { // Cambia la URL por la ruta correcta de tu API
             headers: {
               'x-token':  token,
+              'Accept': 'application/json',
+              'Content-Type':'multipart/form-data',
             },
           });
 
           if (response.ok) {
             const data = await response.json();
             setUser(data);
+            localStorage.setItem("user", JSON.stringify(data));
             console.log(data.role);
             if (data.role === "ADMIN_ROLE") {
                 setIsAdmin(true);
@@ -83,8 +92,13 @@ const Header = () => {
       <img src={Logo_Rivera} alt="Logo Rivera" className="Logo_Rivera" />
       <nav className="nav">
         <ul className="nav-list">
-          <li><Link to="/Inicio" className="nav-link">Inicio</Link></li>
-          <li><Link to="/products" className="nav-link">Productos</Link></li>
+        <li><Link to="/Inicio" className="nav-link">Inicio</Link></li>
+        <li><Link to="/products" className="nav-link">Productos</Link></li>
+        <li>
+            <Link to="/purchase_history" className="nav-link">
+              <img src={CompraIcon} alt="compras" height="30" />
+            </Link>
+        </li>
           {console.log("login",isLoggedIn())}
           {console.log("admin",isAdmin)}
           {console.log("user",user)}
@@ -98,14 +112,27 @@ const Header = () => {
           </li>
           {!isLoggedIn() && ( 
             <>
-              <li><Link to="/login" className="nav-link">Iniciar sesión</Link></li>
-              <li><Link to="/register" className="nav-link">Registrarse</Link></li>
+               <li>
+                <Link to="/login" className="nav-link">
+                  <img src={IniciarSesionIcon} alt="Iniciar sesión" height="30" />
+                </Link>
+              </li>
             </>
           )}
+          {console.log(isAdmin)}
           {isAdmin && (
-            <li><Link to="/admin" className="nav-link">Panel Administrador</Link></li>
+            
+            <li>
+            <Link to="/admin" className="nav-link">
+              <img src={AdminPanelIcon} alt="Panel de Administrador" height="30" />
+            </Link>
+          </li>
           )}
-          <li><Link to="/cart" className="nav-link"><img src="carritocompras.png" alt="" height="30" /></Link></li>
+          <li>
+            <Link to="/cart" className="nav-link">
+              <img src={CarritoIcon} alt="Carrito de compras" height="30" />
+            </Link>
+          </li>
           {isLoggedIn() && (
             <div
             className="nav-link logout-button"

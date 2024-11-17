@@ -11,6 +11,7 @@ const ListaProductos = ({ productos }) => {
     <div className="lista-productos">
       <h1>Todo lo que buscas, en un solo lugar</h1>
       <div className="productos">
+        {console.log(productos)}
         {productos.map((producto) => (
           <Link to={`/product/${producto._id}`} key={producto._id} className="producto-link">
             <div className="producto">

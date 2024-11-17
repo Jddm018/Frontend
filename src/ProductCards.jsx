@@ -31,7 +31,7 @@ const ProductCards = () => {
                     throw new Error('Error al cargar las categorías');
                 }
                 const data = await response.json();
-                console.log(data); // Verifica lo que estás recibiendo
+            
 
                 // Extrae el array de categorías de la respuesta
                 setCategories(data.categories);

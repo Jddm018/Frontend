@@ -14,6 +14,7 @@ import ViewAdmin from './ViewAdmin';
 import ClientForm from './ClientForm';
 import PagoRealizado from './PagoRealizado';
 import PaymentSummary from './PaymentSummary';
+import Compras from './Compras';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
           <Routes>
             <Route path='/cart' element={<CartItem />}></Route>
             <Route path="/login" element={<Login />} />
+            <Route path='/purchase_history' element={<Compras />}></Route>
             <Route path="products" element={<ProductCards />} />
             <Route path="Inicio" element={<Inicio />} />
             <Route path="/" element={<Inicio />} />
